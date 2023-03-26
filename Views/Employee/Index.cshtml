@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVCrestAPI.Models.Employee>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+
+    .workedLess{
+        background-color: crimson;
+    }
+
+</style>
+
+<h1>Employees</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Total Time Worked</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeName</td>
+
+            @if (item.DaysWorked < 100)
+            {
+                <td class="workedLess">@item.DaysWorked</td>
+            }
+            else
+            {
+                <td>@item.DaysWorked</td>
+            }
+
+
+        </tr>
+    }
+</table>
